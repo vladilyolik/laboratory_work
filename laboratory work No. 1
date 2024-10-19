@@ -1,0 +1,14 @@
+import math
+
+def calculate(x, y, z):
+    cube_x = x ** (1/3)
+    s_1 = cube_x + x ** (y + 2)
+    s_2 = math.asin(z) ** 2 - abs(x)
+    s = math.sqrt(10 * s_1) * s_2
+    return s
+
+x = float(input("Введите значение x -> "))
+y = float(input("Введите значение y -> "))
+z = float(input("Введите значение z -> "))
+result = calculate(x, y, z)
+print("Результат s: ", result)
