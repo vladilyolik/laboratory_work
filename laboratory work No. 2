@@ -1,0 +1,35 @@
+from math import *
+import sys
+
+x = float(input("Введите значение x -> "))
+y = float(input("Введите значение y -> "))
+
+msg = "Выберите вид функции f(x): cos(0.5*x) -> 1, e^y -> 2, ln(x/y) -> 3 "
+f = int(input(msg + "\n -> "))
+
+fx = None
+b = None
+
+match f:
+    case 1:
+        fx = cos(0.5 * x)
+    case 2:
+        fx = exp(y)
+    case 3:
+        if y != 0:
+            fx = log(x / y)
+        else:
+            print("Ошибка: y не может быть равным нулю для логарифма.")
+            sys.exit()
+    case _:
+        print("Неверный выбор")
+        sys.exit()
+
+if (0.5 < x * y < 10):
+    b = exp(fx - abs(y))
+elif (0.1 < x - y < 0.5):
+    b = 3 * sqrt(abs(fx + y))
+else:
+    b = 2 * fx ** 2
+    
+print("Результат b:", b)
